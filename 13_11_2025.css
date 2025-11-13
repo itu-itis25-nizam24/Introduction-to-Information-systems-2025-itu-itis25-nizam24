@@ -8,21 +8,28 @@
             font-style: normal;
             color: blue;
             background-color: yellow;
+<<<<<<< HEAD
             font-weight: bold;
+=======
+            font-weigt: bold;
+>>>>>>> 6d5138e62c1b5f014753848461d7f85334ddd3d2
          }
             a:hover {
                text-decoration: none;
             }
-            li:first-child{
+            li:first-child {
                border: thick solid green;
                margin-bottom: lem;
                margin-top: lem;
                padding: lex;
                width: 40%;
             }
+<<<<<<< HEAD
             p.centered {
                text-indent: 3mm;
                text-align: center;
             }
+=======
+>>>>>>> 6d5138e62c1b5f014753848461d7f85334ddd3d2
          
     
