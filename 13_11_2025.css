@@ -8,7 +8,8 @@
             font-style: normal;
             color: blue;
             background-color: yellow;
-            font-weigt: bold;
+            font-weight: bold;
+         }
             a:hover {
                text-decoration: none;
             }
@@ -19,5 +20,9 @@
                padding: lex;
                width: 40%;
             }
-         }
+            p.centered {
+               text-indent: 3mm;
+               text-align: center;
+            }
+         
     
