@@ -9,6 +9,7 @@
             color: blue;
             background-color: yellow;
             font-weigt: bold;
+         }
             a:hover {
                text-decoration: none;
             }
