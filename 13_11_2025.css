@@ -20,10 +20,6 @@
                text-emphasis-style: "*";
                text-shadow: 2px 2px yellow;
             }
-            .center-icon img {
-               display: inline-block;
-               margin: 0 auto;
-            }
             .center-icon {
                text-align:center;
             }
