@@ -6,6 +6,23 @@
      <link rel="stylesheet" type="text/css" href="13_11_2025.css"
       <!--- Embedded css rules end here --->
 </head>
+  <button onclick="changeColor()">Change Button</button>
+
+  <input type="text" id="name">
+
+<script>
+    const colors = ["red", "blue", "green", "gray"];
+    let index = 0;
+
+    function changeColor() {
+        document.getElementById("name").style.backgroundColor = colors[index];
+        index++;
+        if (index === colors.length) {
+            index = 0;
+        }
+    }
+</script>
+
 <input type="text" id="name" onkeydown="keydownFunction()" onkeyup="keyupFunction()">
 
     <script>
