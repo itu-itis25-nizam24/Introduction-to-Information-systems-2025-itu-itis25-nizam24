@@ -6,19 +6,20 @@
      <link rel="stylesheet" type="text/css" href="13_11_2025.css"
       <!--- Embedded css rules end here --->
 </head>
-  <button onclick="changeColor()">Change Button</button>
-
-  <input type="text" id="name">
+  
+ <button id="colorBtn" onclick="changeColor()">Change Button</button>
 
 <script>
-    const colors = ["red", "blue", "green", "gray"];
+    const colors = ["black", "blue", "red", "green"];
     let index = 0;
 
     function changeColor() {
-        document.getElementById("name").style.backgroundColor = colors[index];
+        const btn = document.getElementById("colorBtn");
+        btn.style.backgroundColor = colors[index];
+
         index++;
         if (index === colors.length) {
-            index = 0;
+            index = 0; // başa dönsün
         }
     }
 </script>
