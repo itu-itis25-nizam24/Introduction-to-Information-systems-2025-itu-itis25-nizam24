@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html>
+   <head>
+    <title>My Web Page</title>
+     <link rel="stylesheet" type="text/css" href="13_11_2025.css"
+      <!--- Embedded css rules end here --->
+</head>
+  
+ <button id="colorBtn" onclick="changeColor()">Change Button</button>
+
+<script>
+    const colors = ["red", "blue", "green", "gray"];
+    let index = 0;
+
+    function changeColor() {
+        const btn = document.getElementById("colorBtn");
+        btn.style.backgroundColor = colors[index];
+
+        index++;
+        if (index === colors.length) {
+            index = 0; // başa dönsün
+        }
+    }
+</script>
+<<<<<<< HEAD
+
+<label for="name">Enter your name:</label>
+
+=======
+<label for="name">Enter your name:</label>
+>>>>>>> 1d03fa2a26b29614d42a2131851f0072d488dfff
+<input type="text" id="name" onkeydown="keydownFunction()" onkeyup="keyupFunction()">
+
+    <script>
+        function keydownFunction() {
+            document.getElementById("name").style.backgroundColor = "yellow";
+        }
+        function keyupFunction() {
+            document.getElementById("name").style.backgroundColor = "lightblue";
+        }
+    </script>
+    <body> 
+        <p class="centered">
+            <em>
+        Mehmet Vefa Nizam
+        <br>
+        150240026   
+        </em>
+        </p>
+        <p class="center-icon">
+           <img src="github_icon.png" alt="GitHub İkonu">
+        </p>
+        <h4>Course that I am taking</h4>
+        <ol class=course-list>
+        <li>BBF 101E - Introduction to Information Systems</li>
+        <li>FIZ102E - Physics 2</li>
+        <li>BBF102E - Linear Algebra and Applications </li>
+        <li>FIZ101EL - Physcis Lab 1 </li>
+       </ol>
+         <p>The Universe of Bees</p>
+        <ul>
+<li>Appis Mellifera</li>
+<li>Agapostemon</li>
+<li>Halictus</li>
+<li>Colletes</li>
+<li>Apidae</li>
+<ul>
+    <li>Bombus</li>
+</ul>
+        </ul>
+<h1>Beatiful Bees</h1>
+<p> <img src="bees.jpg"> </p>
+<p> <a href="https://en.wikipedia.org/wiki/Bee">Click here for more Information</a></p>        
+<table>
+    <tr>
+    <th>Family</th> 
+    <th>Genus</th>   
+    </tr>
+    <tr>
+     <td>Apidae</td>
+     <td>Apis</td>
+    </tr>
+    <tr>
+    <td>Halictidae</td>
+    <td>Agapostemon</td>    
+    </tr>
+    <tr>
+        <td>Halictidae</td>
+        <td>Halictus</td>
+    </tr>
+    <tr>
+        <td>Colletidae</td>
+        <td>Colletes</td>     
+    </tr>
+    <tr>
+        <td>Apidae</td>
+        <td>Bombus</td>
+    </tr>
+
+</table>
+<pre>
+    <em><strong>
+                      Are you a beekeeper ?
+
+         This Website is right for you! I hope u enjoy it.</strong></em>
+</pre>
+
+</body>
+   
+</html>

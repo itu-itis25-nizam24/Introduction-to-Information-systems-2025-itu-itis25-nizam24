@@ -1,111 +1,144 @@
 <!DOCTYPE html>
-
-<html>
-   <head>
-    <title>My Web Page</title>
-     <link rel="stylesheet" type="text/css" href="13_11_2025.css"
-      <!--- Embedded css rules end here --->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Application Form - Assignment 12</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; font-weight: bold; }
+        .error { color: red; font-size: 0.9em; margin-left: 10px; }
+        textarea { width: 100%; height: 200px; margin-top: 10px; }
+    </style>
 </head>
-  
- <button id="colorBtn" onclick="changeColor()">Change Button</button>
+<body>
 
-<script>
-    const colors = ["red", "blue", "green", "gray"];
-    let index = 0;
+    <h1>Job Application Form</h1>
 
-    function changeColor() {
-        const btn = document.getElementById("colorBtn");
-        btn.style.backgroundColor = colors[index];
+    <form id="jobForm">
+        <div class="form-group">
+            <label for="tckn">TCKN:</label>
+            <input type="text" id="tckn">
+            <span id="tcknError" class="error"></span>
+        </div>
 
-        index++;
-        if (index === colors.length) {
-            index = 0; // başa dönsün
-        }
-    }
-</script>
-<<<<<<< HEAD
+        <div class="form-group">
+            <label for="fullname">Full Name:</label>
+            <input type="text" id="fullname">
+            <span id="fullnameError" class="error"></span>
+        </div>
 
-<label for="name">Enter your name:</label>
+        <div class="form-group">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob">
+            <span id="dobError" class="error"></span>
+        </div>
 
-=======
-<label for="name">Enter your name:</label>
->>>>>>> 1d03fa2a26b29614d42a2131851f0072d488dfff
-<input type="text" id="name" onkeydown="keydownFunction()" onkeyup="keyupFunction()">
+        <div class="form-group">
+            <label>Gender:</label>
+            <input type="radio" name="gender" value="Male" checked> Male
+            <input type="radio" name="gender" value="Female"> Female
+        </div>
+
+        <div class="form-group">
+            <label>Skills:</label>
+            <input type="checkbox" name="skills" value="HTML"> HTML
+            <input type="checkbox" name="skills" value="CSS"> CSS
+            <input type="checkbox" name="skills" value="JavaScript"> JavaScript
+        </div>
+
+        <div class="form-group">
+            <label for="salary">Salary Expectation:</label>
+            <input type="number" id="salary">
+            <span id="salaryError" class="error"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="experience">Years of Experience:</label>
+            <input type="number" id="experience">
+            <span id="experienceError" class="error"></span>
+        </div>
+
+        <button type="submit">Submit Application</button>
+    </form>
+
+    <h3>Application Preview</h3>
+    <textarea id="previewBox" readonly></textarea>
+
+    <script src="TCKN_validation.js"></script>
+    <script src="FullName_validation.js"></script>
+    <script src="DOB_validation.js"></script> <script src="Salary_validation.js"></script>
+    <script src="Experience_validation.js"></script>
 
     <script>
-        function keydownFunction() {
-            document.getElementById("name").style.backgroundColor = "yellow";
-        }
-        function keyupFunction() {
-            document.getElementById("name").style.backgroundColor = "lightblue";
-        }
+        document.addEventListener("DOMContentLoaded", function() {
+            
+            document.getElementById("tckn").addEventListener("blur", validateTCKN);
+            document.getElementById("fullname").addEventListener("blur", validateFullName);
+            document.getElementById("dob").addEventListener("blur", validateDOB);
+            document.getElementById("salary").addEventListener("blur", validateSalary);
+            document.getElementById("experience").addEventListener("blur", validateExperience);
+
+            
+            document.getElementById("jobForm").addEventListener("submit", function(event) {
+    
+                event.preventDefault();
+
+
+                var isTcknValid = validateTCKN();
+                var isNameValid = validateFullName();
+                var isDobValid = validateDOB();
+                var isSalaryValid = validateSalary();
+                var isExpValid = validateExperience();
+
+                var previewBox = document.getElementById("previewBox");
+
+                if (isTcknValid && isNameValid && isDobValid && isSalaryValid && isExpValid) {
+
+                    alert("Application accepted"); 
+                    
+
+                    var tckn = document.getElementById("tckn").value;
+                    var name = document.getElementById("fullname").value;
+                    var age = getAgeValue();
+                    var salary = document.getElementById("salary").value;
+                    var exp = document.getElementById("experience").value;
+                    
+
+                    var gender = document.querySelector('input[name="gender"]:checked').value;
+
+
+                    var skills = [];
+                    document.querySelectorAll('input[name="skills"]:checked').forEach(function(el) {
+                        skills.push(el.value);
+                    });
+                    var skillsStr = skills.length > 0 ? skills.join(", ") : "None";
+
+
+                    var summary = "TCKN: " + tckn + "\n" +
+                                  "Full Name: " + name + "\n" +
+                                  "Date of Birth: " + document.getElementById("dob").value + "\n" +
+                                  "Age: " + age + "\n" +
+                                  "Gender: " + gender + "\n" +
+                                  "Skills: " + skillsStr + "\n" +
+                                  "Salary: " + salary + "\n" +
+                                  "Experience: " + exp;
+                    
+                    previewBox.value = summary;
+
+                } else {
+          
+                    previewBox.value = ""; 
+                    
+
+                    if (!isTcknValid) document.getElementById("tckn").focus();
+                    else if (!isNameValid) document.getElementById("fullname").focus();
+                    else if (!isDobValid) document.getElementById("dob").focus();
+                    else if (!isSalaryValid) document.getElementById("salary").focus();
+                    else if (!isExpValid) document.getElementById("experience").focus();
+                }
+            });
+        });
     </script>
-    <body> 
-        <p class="centered">
-            <em>
-        Mehmet Vefa Nizam
-        <br>
-        150240026   
-        </em>
-        </p>
-        <p class="center-icon">
-           <img src="github_icon.png" alt="GitHub İkonu">
-        </p>
-        <h4>Course that I am taking</h4>
-        <ol class=course-list>
-        <li>BBF 101E - Introduction to Information Systems</li>
-        <li>FIZ102E - Physics 2</li>
-        <li>BBF102E - Linear Algebra and Applications </li>
-        <li>FIZ101EL - Physcis Lab 1 </li>
-       </ol>
-         <p>The Universe of Bees</p>
-        <ul>
-<li>Appis Mellifera</li>
-<li>Agapostemon</li>
-<li>Halictus</li>
-<li>Colletes</li>
-<li>Apidae</li>
-<ul>
-    <li>Bombus</li>
-</ul>
-        </ul>
-<h1>Beatiful Bees</h1>
-<p> <img src="bees.jpg"> </p>
-<p> <a href="https://en.wikipedia.org/wiki/Bee">Click here for more Information</a></p>        
-<table>
-    <tr>
-    <th>Family</th> 
-    <th>Genus</th>   
-    </tr>
-    <tr>
-     <td>Apidae</td>
-     <td>Apis</td>
-    </tr>
-    <tr>
-    <td>Halictidae</td>
-    <td>Agapostemon</td>    
-    </tr>
-    <tr>
-        <td>Halictidae</td>
-        <td>Halictus</td>
-    </tr>
-    <tr>
-        <td>Colletidae</td>
-        <td>Colletes</td>     
-    </tr>
-    <tr>
-        <td>Apidae</td>
-        <td>Bombus</td>
-    </tr>
-
-</table>
-<pre>
-    <em><strong>
-                      Are you a beekeeper ?
-
-         This Website is right for you! I hope u enjoy it.</strong></em>
-</pre>
-
 </body>
-   
 </html>
